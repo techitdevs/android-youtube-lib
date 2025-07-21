@@ -23,43 +23,37 @@ import com.techit.youtubesample.extensions.extractYouTubeId
 
 @Composable
 fun YoutubePlayerScreen(youtubeUrl:String){
-
     val videoId = youtubeUrl.extractYouTubeId()
-
     Box(modifier = Modifier
         .fillMaxSize()) {
         Column {
-            Text("Welcome to Youtube Player", modifier = Modifier.fillMaxWidth().background(
-                Color.Red).align(Alignment.CenterHorizontally))
-            Row(modifier = Modifier.background(Color.Green)) {
-                AndroidView(
-                    modifier = Modifier.fillMaxSize(),
-                    factory = { ctx ->
-                        YouTubePlayerView(ctx).apply {
-                            enableAutomaticInitialization = false           // 🔑
-                            keepScreenOn = true
-                            val opts = IFramePlayerOptions.Builder()
-                                .controls(0)
-                                .fullscreen(0)
-                                .autoplay(1)
-                                .rel(0)
-                                .build()
+            AndroidView(
+                modifier = Modifier.fillMaxSize(),
+                factory = { ctx ->
+                    YouTubePlayerView(ctx).apply {
+                        enableAutomaticInitialization = false           // 🔑
+                        keepScreenOn = true
+                        val opts = IFramePlayerOptions.Builder()
+                            .controls(0)
+                            .fullscreen(0)
+                            .autoplay(1)
+                            .rel(0)
+                            .build()
 
-                            initialize(object : AbstractYouTubePlayerListener() {
-                                override fun onReady(player: YouTubePlayer) {
-                                    videoId?.let {
-                                        player.loadVideo(it, 0f)
-                                    }
-                                    // lastVideoId.value = videoId
+                        initialize(object : AbstractYouTubePlayerListener() {
+                            override fun onReady(player: YouTubePlayer) {
+                                videoId?.let {
+                                    player.loadVideo(it, 0f)
                                 }
-                            }, opts)
-                        }
-                    },
-                    update = { view ->
-
+                                // lastVideoId.value = videoId
+                            }
+                        }, opts)
                     }
-                )
-            }
+                },
+                update = { view ->
+
+                }
+            )
         }
 
     }

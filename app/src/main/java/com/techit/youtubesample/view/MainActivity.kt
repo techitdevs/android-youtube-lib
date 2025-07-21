@@ -20,7 +20,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             YoutubeSampleTheme {
-                YoutubePlayerScreen(youtubeUrl = "https://www.youtube.com/watch?v=Nq2wYlWFucg")
+                YoutubePlayerScreen(youtubeUrl = "https://www.youtube.com/watch?v=Nq2wY1WFucg")
             }
         }
     }

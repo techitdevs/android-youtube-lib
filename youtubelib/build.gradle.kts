@@ -9,8 +9,6 @@ android {
     compileSdk = 35
 
     defaultConfig {
-        minSdk = 24
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
@@ -44,7 +42,7 @@ dependencies {
                 // Basic metadata
                 groupId = "com.github.techitdevs"
                 artifactId = "youtubeLib"
-                version = "1.0"
+                version = "1.1"
 
                 // For Android libraries, use afterEvaluate
                 afterEvaluate {
